@@ -5,8 +5,7 @@ Hands-on labs for the CompTIA Network+ certification, covering network design, s
 All labs were completed in Cisco Packet Tracer using a fictional company network. No real devices, accounts, or credentials are shown.
 
 ## Labs
-
-* [comptia-network-plus-notes.md)
+-[CompTIA Network+ Notes](comptia-network-plus-notes.md)
 
 ## Skills shown
 
