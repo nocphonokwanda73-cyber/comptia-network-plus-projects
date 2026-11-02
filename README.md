@@ -6,7 +6,7 @@ All labs were completed in Cisco Packet Tracer using a fictional company network
 
 ## Labs
 
-* [Small Company Network: VLANs, Inter-VLAN Routing, DHCP, DNS and ACL in Cisco Packet Tracer](https://github.com/nocphonokwanda73-cyber/comptia-network-plus-project)
+* [comptia-network-plus-notes.md)
 
 ## Skills shown
 
