@@ -4,7 +4,7 @@ Welcome! This page links to my hands-on CompTIA Network+ labs. Click a link to o
 
 ## Projects
 
--(https://github.com/nocphonokwanda73-cyber/comptia-network-plus-project) |
+-(comptia-network-plus-project) |
 
 ## Skills Covered
 - Network design and IP addressing
