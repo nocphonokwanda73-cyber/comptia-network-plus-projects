@@ -26,60 +26,60 @@ Cisco Packet Tracer 9.0.1
 ## Topology
 Staff PCs are in VLAN 10, Guest PCs in VLAN 20, and the server in VLAN 30. SW1 connects to R1 over an 802.1Q trunk on Fa0/1.
 
-![Final topology](screenshots/18-topology-final_.png)
+![Final topology](18-topology-final..png)
 
 Initial build before configuration:
 
-![Topology before configuration](screenshots/01-topology-before.png)
+![Topology before configuration](01-topology-before.png)
 
 ## Configuration
 
 ### 1. Switch: VLANs and trunk
 Created VLANs 10, 20 and 30, assigned access ports, and configured Fa0/1 as a trunk to the router.
 
-![show vlan brief](screenshots/02-switch-show-vlan-brief.png)
+![show vlan brief](02-switch-show-vlan-brief.png)
 
-![show interfaces trunk](screenshots/03-switch-show-interfaces-trunk.png)
+![show interfaces trunk](03-switch-show-interfaces-trunk.png)
 
 ### 2. Router: inter-VLAN routing
 Configured subinterfaces Gig0/0.10, .20 and .30 with 802.1Q encapsulation, plus `ip helper-address 192.168.30.10` on the Staff and Guest subinterfaces to relay DHCP requests to the server.
 
-![show ip interface brief](screenshots/04-router-show-ip-interface-brief.png)
+![show ip interface brief](04-router-show-ip-interface-brief.png)
 
 ### 3. Server: static IP, DHCP and DNS
 The server uses the static address 192.168.30.10. DHCP pools were created for Staff and Guest, and a DNS record maps `intranet.company.local` to 192.168.30.10.
 
-![Server IP configuration](screenshots/05-server-ip-configuration.png)
+![Server IP configuration](05-server-ip-configuration.png)
 
-![DHCP pools](screenshots/06-server-dhcp-pools.png)
+![DHCP pools](06-server-dhcp-pools.png)
 
-![DNS record](screenshots/07-server-dns.png)
+![DNS record](07-server-dns.png)
 
 ## Testing (before the ACL)
 
 ### DHCP
 Both PC groups received addresses automatically from the correct pools.
 
-![Staff-PC1 DHCP](screenshots/08-staff-pc1-dhcp.png)
+![Staff-PC1 DHCP](08-staff-pc1-dhcp.png)
 
-![Guest-PC1 DHCP](screenshots/09-guest-pc1-dhcp.png)
+![Guest-PC1 DHCP](09-guest-pc1-dhcp.png)
 
 ### Connectivity and inter-VLAN routing
 Staff-PC1 reached the router, the server, and a Guest PC. The `tracert` output shows traffic passing through the router (192.168.10.1), which confirms inter-VLAN routing.
 
-![Staff-PC1 ping tests](screenshots/10-staff-pc1-ping-tests.png)
+![Staff-PC1 ping tests](10-staff-pc1-ping-tests.png)
 
-![Staff-PC1 tracert](screenshots/11-staff-pc1-tracert_.png)
+![Staff-PC1 tracert](11-staff-pc1-tracert..png)
 
 ### DNS
 `nslookup` resolved `intranet.company.local` to 192.168.30.10.
 
-![nslookup](screenshots/12-staff-pc1-nslookup_.png)
+![nslookup](12-staff-pc1-nslookup..png)
 
 ### Guest to Staff, before the ACL
 Before the ACL, Guest-PC1 could reach Staff-PC1.
 
-![Guest ping Staff before ACL](screenshots/13-guest-pc1-ping-staff-before-acl_.png)
+![Guest ping Staff before ACL](13-guest-pc1-ping-staff-before-acl..png)
 
 ## Security: Extended ACL
 Created `GUEST_ACL` and applied it inbound on `Gig0/0.20`. It permits DHCP and DNS for guests, blocks guests from the Staff and Server networks, and allows all other traffic.
@@ -95,20 +95,20 @@ interface g0/0.20
  ip access-group GUEST_ACL in
 ```
 
-![show access-lists](screenshots/14-router-show-access-lists.png)
+![show access-lists](14-router-show-access-lists.png)
 
 ## Testing (after the ACL)
 Guest-PC1 can no longer reach Staff or the server ("Destination host unreachable"), but DNS still works.
 
-![Guest after ACL](screenshots/15-guest-pc1-after-acl.png)
+![Guest after ACL](15-guest-pc1-after-acl.png)
 
 Staff can still reach Guest devices, because the ACL only filters traffic coming from the Guest VLAN.
 
-![Staff still works](screenshots/16-staff-pc1-still-works.png)
+![Staff still works](16-staff-pc1-still-works.png)
 
 The ACL match counters show the deny rules being hit.
 
-![ACL hit counts](screenshots/17-router-acl-hit-counts.png)
+![ACL hit counts](17-router-acl-hit-counts.png)
 
 ## Files
 - `company-network.pkt`: the Packet Tracer project
