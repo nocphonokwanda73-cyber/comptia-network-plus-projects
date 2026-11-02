@@ -1,21 +1,22 @@
-# CompTIA Network+ Projects
+# CompTIA Network+ Labs
 
-Welcome! This page links to my hands-on CompTIA Network+ labs. Click a link to open the full project, with screenshots, configuration files and a write-up.
+Hands-on labs for the CompTIA Network+ certification, covering network design, switching, routing, network services, and network security.
 
-## Projects
+All labs were completed in Cisco Packet Tracer using a fictional company network. No real devices, accounts, or credentials are shown.
 
--(comptia-network-plus-project) 
+## Labs
 
-## Skills Covered
-- Network design and IP addressing
-- VLANs and trunking
-- Inter-VLAN routing (router-on-a-stick)
-- DHCP and DNS services
-- Access control lists (ACLs)
-- Troubleshooting with `ping`, `tracert`, `nslookup` and `ipconfig`
+* [Small Company Network: VLANs, Inter-VLAN Routing, DHCP, DNS and ACL in Cisco Packet Tracer](https://github.com/nocphonokwanda73-cyber/comptia-network-plus-project)
 
-## Tools
-Cisco Packet Tracer 9.0.1, GitHub
+## Skills shown
 
-## About
-I am building a career in networking and cybersecurity. Each project includes screenshots as proof of testing, the configuration files, and notes on what I learned.
+* Designing an IP addressing plan with separate Staff, Guest and Server subnets
+* Creating VLANs and assigning switch ports
+* Configuring an 802.1Q trunk between a switch and a router
+* Setting up inter-VLAN routing with router subinterfaces
+* Configuring a DHCP server with separate pools and a DHCP relay (`ip helper-address`)
+* Configuring a DNS server with an A record
+* Writing an extended ACL that isolates guest users while keeping DHCP and DNS working
+* Testing with `ping`, `tracert`, `nslookup` and `ipconfig`, before and after the ACL
+* Troubleshooting CLI mode errors and DHCP failures
+* Documenting network work clearly, with screenshots and configuration files
