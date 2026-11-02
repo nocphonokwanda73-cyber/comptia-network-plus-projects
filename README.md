@@ -4,7 +4,7 @@ Welcome! This page links to my hands-on CompTIA Network+ labs. Click a link to o
 
 ## Projects
 
--(comptia-network-plus-project) |
+-(comptia-network-plus-project) 
 
 ## Skills Covered
 - Network design and IP addressing
